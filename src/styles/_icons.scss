@@ -1,0 +1,34 @@
+.icon {
+  &__arrow {
+    font-size: 23px;
+
+    &--left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 23px;
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 18px;
+
+      &--left {
+        top: 1px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__calendar {
+    font-size: 21px;
+    @media screen and (max-width: 600px) {
+      font-size: 16px;
+    }
+  }
+
+  &__exclamation {
+    color: $primary;
+    width: 120px;
+    height: 120px;
+  }
+}
