@@ -3,7 +3,7 @@ Article search app. Test task on Codebridge vacancy
 &nbsp;
 
 <strong>Link to Vercel:</strong>
-<strong><a href="spa-spaceflight.vercel.app">Article search app(by Spaceflight News API)</a></strong>
+<strong><a href="https://spa-spaceflight.vercel.app">Article search app(by Spaceflight News API)</a></strong>
 
 &nbsp;
 
