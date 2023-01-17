@@ -33,7 +33,7 @@ const CardItem = ({ article, queryArr }: Props) => {
   const { title, summary, imageUrl, publishedAt } = article
 
   const formattedDate = dateFormatter(publishedAt)
-  const trimmedSummary = trimmedString(summary)
+  const trimmedSummary = summary ? trimmedString(summary) : "no description"
 
   return (
     <Card sx={cardItemSx}>
