@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { getArticles, getArticlesByPage, getArticlesCount } from "../thunks/fetchArticles"
+import { getArticles, getArticlesByPage, getArticlesCount, getAllArticlesCount, getAllArticlesByPage } from "../thunks/fetchArticles"
 
 const initialState: ArticlesState = {
   articles: [],
@@ -20,6 +20,28 @@ const articlesSlice = createSlice({
   },
   extraReducers(builder) {
     builder
+      .addCase(getAllArticlesCount.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getAllArticlesCount.fulfilled, (state, action: PayloadAction<number>) => {
+        state.isLoading = false
+        state.count = action.payload
+      })
+      .addCase(getAllArticlesCount.rejected, (state, action: PayloadAction<any>) => {
+        state.error = action.payload
+      })
+      
+      .addCase(getAllArticlesByPage.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getAllArticlesByPage.fulfilled, (state, action: PayloadAction<IArticle[]>) => {
+        state.isLoading = false
+        state.articles = action.payload
+      })
+      .addCase(getAllArticlesByPage.rejected, (state, action: PayloadAction<any>) => {
+        state.error = action.payload
+      })
+
       .addCase(getArticles.pending, (state) => {
         state.isLoading = true
         state.noData = false

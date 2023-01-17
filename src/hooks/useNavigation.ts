@@ -1,7 +1,9 @@
 import { useState } from "react"
 
+
 const useNavigation = () => {
-  const [page, setPage] = useState<number>(1)  
+  const [page, setPage] = useState<number>(1) 
+  
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value)

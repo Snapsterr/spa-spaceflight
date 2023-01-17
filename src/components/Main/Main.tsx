@@ -1,7 +1,11 @@
 import { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../hooks/useAppDispatch"
 import useNavigation from "../../hooks/useNavigation"
-import { getArticlesByPage } from "../../store/thunks/fetchArticles"
+import {
+  getArticlesByPage,
+  getAllArticlesCount,
+  getAllArticlesByPage,
+} from "../../store/thunks/fetchArticles"
 import CardsGrid from "../CardsGrid/CardsGrid"
 import ErrorData from "../ErrorData/ErrorData"
 import PaginationRange from "./PaginationRange"
@@ -13,16 +17,23 @@ const Main = () => {
   )
 
   const dispatch = useAppDispatch()
-
   const { page, handleChange } = useNavigation()
 
   useEffect(() => {
-    if (articles.length !== 0 && query) {
+    dispatch(getAllArticlesByPage(page))
+    dispatch(getAllArticlesCount())
+  }, [])
+
+  useEffect(() => {
+    if (articles.length !== 0 && query.length !== 0) {
       dispatch(getArticlesByPage({ query, page }))
+    }
+    if (articles.length !== 0 && query.length === 0) {
+      dispatch(getAllArticlesByPage(page))
     }
   }, [page])
 
-  const totalPages = Math.floor(count / 6)
+  const totalPages = Math.ceil(count / 6)
 
   return (
     <main className="main">

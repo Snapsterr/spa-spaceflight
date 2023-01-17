@@ -1,6 +1,32 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { ArticlesService } from "../../services/ArticlesService"
 
+export const getAllArticlesCount = createAsyncThunk<number, void, {rejectValue: string}>(
+  "articles/getAllArticlesCount",
+  async (_, thunkApi) => {
+    try {
+      const res = await ArticlesService.getAllArticlesCount()
+      return res
+    } catch (error: any) {
+      const message = error.message
+      return thunkApi.rejectWithValue(message)
+    }
+  }
+)
+
+export const getAllArticlesByPage = createAsyncThunk<IArticle[], number, {rejectValue: string}>(
+  "articles/getAllArticlesByPage",
+  async (page, thunkApi) => {
+    try {
+      const data = await ArticlesService.getAllArticlesByPage(page)
+      return data
+    } catch (error: any) {
+      const message = error.message
+      return thunkApi.rejectWithValue(message)
+    }
+  }
+)
+
 export const getArticles = createAsyncThunk<IArticle[], string[], {rejectValue: string}>(
   "articles/getArticles",
   async (query, thunkApi) => {

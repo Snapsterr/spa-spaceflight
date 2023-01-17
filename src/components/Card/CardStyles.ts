@@ -5,6 +5,11 @@ export const cardItemSx = {
   border: "1px solid #EAEAEA",
   boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.05)",
   borderRadius: "5px",
+  transition: 'box-shadow 0.4s ease',
+  userSelect: 'none',
+  "&:hover": {
+    boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.25)",
+  },
   "@media screen and (max-width: 600px)": {
     height: "490px",
   },

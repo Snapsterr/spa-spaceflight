@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import { IconButton, TextField } from "@mui/material"
 import { FiSearch } from "react-icons/fi"
 import { stringToArray } from "../../utils/stringUtils"
@@ -9,15 +9,21 @@ import { searchFieldSx } from "./HeaderStyles"
 
 const SearchField = () => {
   const searchRef = useRef<HTMLInputElement>(null)
+  const [isError, setIsError] = useState<boolean>(false)
   const dispatch = useAppDispatch()
 
   const onSubmitHandler = (e: React.FormEvent) => {
     e.preventDefault()
+    console.log("subm")
+
     if (searchRef.current?.value) {
+      setIsError(false)
       const query = stringToArray(searchRef.current?.value)
       dispatch(saveQuery(query))
       dispatch(getArticles(query))
       dispatch(getArticlesCount(query))
+    } else {
+      setIsError(true)
     }
   }
 
@@ -40,6 +46,8 @@ const SearchField = () => {
         placeholder="Start typing keywords..."
         size="small"
         autoComplete="off"
+        error={isError}
+        helperText={isError ? "Empty field!" : " "}
         sx={searchFieldSx}
       />
     </form>

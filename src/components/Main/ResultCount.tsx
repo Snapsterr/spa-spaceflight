@@ -8,7 +8,7 @@ const ResultCount = ({ count }: Props) => {
   return (
     <>
       <div className="title title--result">
-        Results: <>{count - 6}</>
+        Results: <>{count}</>
       </div>
 
       <Divider textAlign="left" />
