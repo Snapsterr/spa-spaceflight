@@ -5,19 +5,19 @@ import { BsArrowLeftShort } from "react-icons/bs"
 import { dateFormatter } from "../utils/dateFormatter"
 import { CiCalendar } from "react-icons/ci"
 import {
-  cardContentWrapperSx,
-  cardPageActionLinkSx,
-  cardPageActionSx,
-  cardPageActionWrapperSx,
-  cardPageDateSx,
-  cardPageDateWrapperSx,
-  cardPageDescriptionSx,
-  cardPageImgSx,
-  cardPageTitleSx,
-  cardPageWrapperSx,
+  articlePageContentWrapperSx,
+  articlePageActionLinkSx,
+  articlePageActionSx,
+  articlePageActionWrapperSx,
+  articlePageDateSx,
+  articlePageDateWrapperSx,
+  articlePageDescriptionSx,
+  articlePageImgSx,
+  articlePageTitleSx,
+  articlePageWrapperSx,
 } from "./PagesStyle"
 
-const CardPage = () => {
+const ArticlePage = () => {
   const location = useLocation()
   const data = location.state?.cardData
 
@@ -33,19 +33,19 @@ const CardPage = () => {
     <>
       <Box
         component="img"
-        sx={cardPageImgSx}
+        sx={articlePageImgSx}
         alt={title}
         src={imageUrl ? imageUrl : ""}
       />
 
-      <Box component="main" sx={cardPageWrapperSx}>
+      <Box component="main" sx={articlePageWrapperSx}>
         <div className="container">
-          <Box component="div" sx={cardContentWrapperSx}>
+          <Box component="div" sx={articlePageContentWrapperSx}>
             <Typography
               gutterBottom
               variant="h1"
               component="h1"
-              sx={cardPageTitleSx}
+              sx={articlePageTitleSx}
             >
               {title}
             </Typography>
@@ -53,27 +53,27 @@ const CardPage = () => {
               direction="row"
               alignItems="center"
               justifyContent="start"
-              sx={cardPageDateWrapperSx}
+              sx={articlePageDateWrapperSx}
             >
               <CiCalendar className="icon__calendar" />
-              <Typography sx={cardPageDateSx}>{formattedDate}</Typography>
+              <Typography sx={articlePageDateSx}>{formattedDate}</Typography>
             </Stack>
-            <Typography variant="body2" sx={cardPageDescriptionSx}>
+            <Typography variant="body2" sx={articlePageDescriptionSx}>
               {summary}
             </Typography>
           </Box>
 
-          <CardActions sx={cardPageActionSx}>
+          <CardActions sx={articlePageActionSx}>
             <Link to="/" className="link__more link__more--left">
               <Stack
                 direction="row"
                 alignItems="start"
                 justifyContent="start"
                 gap="0px"
-                sx={cardPageActionWrapperSx}
+                sx={articlePageActionWrapperSx}
               >
                 <BsArrowLeftShort className="icon icon__arrow--left" />
-                <Typography sx={cardPageActionLinkSx}>
+                <Typography sx={articlePageActionLinkSx}>
                   Back to homepage
                 </Typography>
               </Stack>
@@ -85,4 +85,4 @@ const CardPage = () => {
   )
 }
 
-export default CardPage
+export default ArticlePage

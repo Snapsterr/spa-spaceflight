@@ -1,4 +1,4 @@
-export const cardPageImgSx = {
+export const articlePageImgSx = {
   position: "absolute",
   top: 0,
   left: 0,
@@ -8,11 +8,11 @@ export const cardPageImgSx = {
   zIndex: "5",
 }
 
-export const cardPageWrapperSx = {
+export const articlePageWrapperSx = {
   marginTop: "150px",
 }
 
-export const cardContentWrapperSx = {
+export const articlePageContentWrapperSx = {
   padding: "35px 75px 50px 75px",
   display: "flex",
   flexDirection: "column",
@@ -30,7 +30,7 @@ export const cardContentWrapperSx = {
   },
 }
 
-export const cardPageTitleSx = {
+export const articlePageTitleSx = {
   margin: "35px 0px 35px 0px",
   fontFamily: "Montserrat",
   fontStyle: "normal",
@@ -44,7 +44,7 @@ export const cardPageTitleSx = {
   },
 }
 
-export const cardPageDateWrapperSx = {
+export const articlePageDateWrapperSx = {
   marginBottom: "30px",
   gap: '8px',
   "@media screen and (max-width: 600px)": {
@@ -52,7 +52,7 @@ export const cardPageDateWrapperSx = {
   },
 }
 
-export const cardPageDateSx = {
+export const articlePageDateSx = {
   alignSelf: "flex-end",
   fontFamily: "Montserrat",
   fontStyle: "normal",
@@ -65,7 +65,7 @@ export const cardPageDateSx = {
   },
 }
 
-export const cardPageDescriptionSx = {
+export const articlePageDescriptionSx = {
   marginBottom: "20px",
   fontFamily: "Montserrat",
   fontStyle: "normal",
@@ -77,11 +77,11 @@ export const cardPageDescriptionSx = {
   },
 }
 
-export const cardPageActionSx = { marginTop: "35px", padding: "0px 0px 45px 0px" }
+export const articlePageActionSx = { marginTop: "35px", padding: "0px 0px 45px 0px" }
 
-export const cardPageActionWrapperSx = { position: "relative" }
+export const articlePageActionWrapperSx = { position: "relative" }
 
-export const cardPageActionLinkSx = {
+export const articlePageActionLinkSx = {
   paddingLeft: "25px",
   alignSelf: "center",
   fontFamily: "Montserrat",
