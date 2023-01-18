@@ -23,7 +23,7 @@ export class ArticlesService {
   static async getArticlesCount(arr: Array<string>): Promise<number> {
     const query = arr.map((el, i) => `_where[_or][${i}][title_contains]=${el}&_where[_or][${i}][summary_contains]=${el}`).join('&')
     
-    const res = await spaceDevApi.get<number>(`/articles/count?${query}&_sort=title:ASC`)
+    const res = await spaceDevApi.get<number>(`/articles/count?${query}`)
     return res.data
   }
 
