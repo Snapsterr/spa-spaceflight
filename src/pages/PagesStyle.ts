@@ -25,7 +25,7 @@ export const articlePageContentWrapperSx = {
   "@media screen and (max-width: 800px)": {
     padding: "25px 55px 35px 55px",
   },
-  "@media screen and (max-width: 600px)": {
+  "@media screen and (max-width: 599px)": {
     padding: "15px 35px 25px 35px",
   },
 }
@@ -38,7 +38,7 @@ export const articlePageTitleSx = {
   fontSize: "24px",
   lineHeight: "29px",
   textAlign: "center",
-  "@media screen and (max-width: 600px)": {
+  "@media screen and (max-width: 599px)": {
     fontSize: "20px",
     lineHeight: "28px",
   },
@@ -47,7 +47,7 @@ export const articlePageTitleSx = {
 export const articlePageDateWrapperSx = {
   marginBottom: "30px",
   gap: '8px',
-  "@media screen and (max-width: 600px)": {
+  "@media screen and (max-width: 599px)": {
     gap: '5px',
   },
 }
@@ -60,7 +60,7 @@ export const articlePageDateSx = {
   fontSize: "14px",
   lineHeight: "125%",
   opacity: "0.6",
-  "@media screen and (max-width: 600px)": {
+  "@media screen and (max-width: 599px)": {
     fontSize: "12px",
   },
 }
@@ -72,7 +72,7 @@ export const articlePageDescriptionSx = {
   fontWeight: "400",
   fontSize: "16px",
   lineHeight: "150%",
-  "@media screen and (max-width: 600px)": {
+  "@media screen and (max-width: 599px)": {
     fontSize: "14px",
   },
 }
@@ -90,7 +90,7 @@ export const articlePageActionLinkSx = {
   fontWeight: "700",
   color: "#363636",
   textTransform: "none",
-  "@media screen and (max-width: 600px)": {
+  "@media screen and (max-width: 599px)": {
     paddingLeft: "18px",
     fontSize: "14px",
   },

@@ -9,7 +9,7 @@
       font-size: 23px;
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 599px) {
       font-size: 18px;
 
       &--left {
@@ -21,7 +21,7 @@
 
   &__calendar {
     font-size: 21px;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 599px) {
       font-size: 16px;
     }
   }

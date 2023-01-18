@@ -10,7 +10,7 @@ export const cardItemSx = {
   "&:hover": {
     boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.25)",
   },
-  "@media screen and (max-width: 600px)": {
+  "@media screen and (max-width: 599px)": {
     height: "490px",
   },
 }
@@ -33,7 +33,7 @@ export const cardBodyWrapperSx = {
 export const cardDateWrapperSx = {
   marginBottom: "22px",
   gap: '8px',
-  "@media screen and (max-width: 600px)": {
+  "@media screen and (max-width: 599px)": {
     gap: '5px'
   },
 }
@@ -47,13 +47,14 @@ export const cardDateSx = {
   lineHeight: "125%",
   color: '#363636',
   opacity: "0.6",
-  "@media screen and (max-width: 600px)": {
+  "@media screen and (max-width: 599px)": {
     fontSize: "12px"
   },
 }
 
 export const cardTitleSx = {
   flex: "1 1 0",
+  minWidth: '185px',
   maxHeight: "57px",
   marginBottom: "20px",
   fontFamily: "Montserrat",
@@ -68,7 +69,7 @@ export const cardTitleSx = {
   WebkitLineClamp: "2",
   lineClamp: "2",
   WebkitBoxOrient: "vertical",
-  "@media screen and (max-width: 600px)": {
+  "@media screen and (max-width: 599px)": {
     fontSize: "20px",
     lineHeight: "28px",
   },
@@ -89,7 +90,7 @@ export const cardDescriptionSx = {
   WebkitLineClamp: "4",
   lineClamp: "4",
   WebkitBoxOrient: "vertical",
-  "@media screen and (max-width: 600px)": {
+  "@media screen and (max-width: 599px)": {
     fontSize: "14px",
     lineHeight: "150%",
   },
@@ -104,7 +105,7 @@ export const cardActionLinkSx = {
   fontWeight: "700",
   color: "#363636",
   textTransform: "none",
-  "@media screen and (max-width: 600px)": {
+  "@media screen and (max-width: 599px)": {
     fontSize: "14px",
   },
 }

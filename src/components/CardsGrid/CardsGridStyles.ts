@@ -5,7 +5,15 @@ export const skeletonSx = {
     height: "1722px",
   },
 
-  "@media screen and (max-width: 600px)": {
+  "@media screen and (max-width: 599px)": {
     height: "3372px",
+  },
+}
+
+export const cardsGridWrapperSx = {
+  marginTop: "40px",
+
+  "@media screen and (min-width: 0px)": {
+    marginTop: "0px",
   },
 }

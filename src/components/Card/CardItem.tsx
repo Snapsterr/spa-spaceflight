@@ -27,9 +27,10 @@ import {
 interface Props {
   article: IArticle
   queryArr: string[]
+  isLoading: boolean
 }
 
-const CardItem = ({ article, queryArr }: Props) => {
+const CardItem = ({ article, queryArr, isLoading }: Props) => {
   const { title, summary, imageUrl, publishedAt } = article
 
   const formattedDate = dateFormatter(publishedAt)
@@ -53,7 +54,6 @@ const CardItem = ({ article, queryArr }: Props) => {
           <CiCalendar className="icon icon__calendar" />
           <Typography sx={cardDateSx}>{formattedDate}</Typography>
         </Stack>
-
         <Typography gutterBottom variant="h5" component="div" sx={cardTitleSx}>
           <Highlighter
             searchWords={queryArr}
