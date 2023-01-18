@@ -12,7 +12,7 @@ import PaginationRange from "./PaginationRange"
 import ResultCount from "./ResultCount"
 
 const Main = () => {
-  const { articles, count, query, noData } = useAppSelector(
+  const { articles, count, query } = useAppSelector(
     (state) => state.articlesSlice
   )
 
@@ -35,20 +35,17 @@ const Main = () => {
 
   const totalPages = Math.ceil(count / 6)
 
+  if (articles.length !== 0) return <ErrorData />
+
   return (
     <main className="main">
-      {articles.length !== 0 && (
-        <>
-          <ResultCount count={count} />
-          <PaginationRange
-            currentPage={page}
-            totalPages={totalPages}
-            handleChange={handleChange}
-          />
-        </>
-      )}
-      {noData && <ErrorData />}
+      <ResultCount count={count} />
       <CardsGrid />
+      <PaginationRange
+        currentPage={page}
+        totalPages={totalPages}
+        handleChange={handleChange}
+      />
     </main>
   )
 }
