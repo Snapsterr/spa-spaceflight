@@ -6,7 +6,8 @@ const initialState: ArticlesState = {
   count: 0,
   error: null,
   isLoading: false,
-  query: []
+  query: [],
+  noData: false
 }
 
 const articlesSlice = createSlice({
@@ -43,10 +44,14 @@ const articlesSlice = createSlice({
 
       .addCase(getArticles.pending, (state) => {
         state.isLoading = true
+        state.noData = false
       })
       .addCase(getArticles.fulfilled, (state, action: PayloadAction<IArticle[]>) => {
         state.isLoading = false
         state.articles = action.payload
+        if (state.articles.length === 0) {
+          state.noData = true
+        } 
       })
       .addCase(getArticles.rejected, (state, action: PayloadAction<any>) => {
         state.error = action.payload
