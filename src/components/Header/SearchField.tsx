@@ -14,11 +14,15 @@ const SearchField = () => {
 
   const onSubmitHandler = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("subm")
+
+    setIsError(false)
+    const searchText = searchRef.current?.value
 
     if (searchRef.current?.value) {
-      setIsError(false)
+      if (!searchText?.trim().length) return setIsError(true)
+
       const query = stringToArray(searchRef.current?.value)
+
       dispatch(saveQuery(query))
       dispatch(getArticles(query))
       dispatch(getArticlesCount(query))
