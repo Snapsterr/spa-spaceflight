@@ -7,6 +7,7 @@ export const cardItemSx = {
   borderRadius: "5px",
   transition: 'box-shadow 0.4s ease',
   userSelect: 'none',
+  position: 'relative',
   "&:hover": {
     boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.25)",
   },
@@ -18,6 +19,9 @@ export const cardItemSx = {
 export const cardImgSx = {
   minHeight: "220px",
   maxHeight: "220px",
+  borderBottomLeftRadius: '0px',
+  borderBottomRightRadius: '0px',
+  transform: "scale(1)",
 }
 
 export const cardBodyWrapperSx = {

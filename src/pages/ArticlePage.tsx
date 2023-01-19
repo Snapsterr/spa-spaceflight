@@ -1,4 +1,4 @@
-import { Box } from "@mui/material"
+import { Box, Skeleton } from "@mui/material"
 import { Typography, CardActions, Stack } from "@mui/material"
 import { Link, Navigate, useLocation } from "react-router-dom"
 import { BsArrowLeftShort } from "react-icons/bs"
@@ -16,8 +16,10 @@ import {
   articlePageTitleSx,
   articlePageWrapperSx,
 } from "./PagesStyle"
+import { useState } from "react"
 
 const ArticlePage = () => {
+  const [loadingContext, setLoadingContext] = useState<boolean>(true)
   const location = useLocation()
   const data = location.state?.cardData
 
@@ -31,11 +33,13 @@ const ArticlePage = () => {
 
   return (
     <>
-      <Box
-        component="img"
-        sx={articlePageImgSx}
-        alt={title}
+      {loadingContext && <Skeleton width={"100%"} sx={articlePageImgSx} />}
+      <img
         src={imageUrl ? imageUrl : ""}
+        alt={title}
+        onLoad={() => setLoadingContext(false)}
+        className="card__img card__img--page"
+        style={{ display: loadingContext ? "none" : "block" }}
       />
 
       <Box component="main" sx={articlePageWrapperSx}>

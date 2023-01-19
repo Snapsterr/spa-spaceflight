@@ -7,7 +7,8 @@ const initialState: ArticlesState = {
   error: null,
   isLoading: false,
   query: [],
-  noData: false
+  isDataEnabled: false,
+  isPageNumChanged: false
 }
 
 const articlesSlice = createSlice({
@@ -16,10 +17,15 @@ const articlesSlice = createSlice({
   reducers: {
     saveQuery(state, action: PayloadAction<string[]>) {
       state.query = action.payload
+    },
+    setPageNumUpdated(state) {
+      state.isPageNumChanged = !state.isPageNumChanged
     }
   },
   extraReducers(builder) {
     builder
+
+      //getAllArticlesCount
       .addCase(getAllArticlesCount.pending, (state) => {
         state.isLoading = true
       })
@@ -31,6 +37,7 @@ const articlesSlice = createSlice({
         state.error = action.payload
       })
       
+      //getAllArticlesByPage
       .addCase(getAllArticlesByPage.pending, (state) => {
         state.isLoading = true
       })
@@ -42,21 +49,23 @@ const articlesSlice = createSlice({
         state.error = action.payload
       })
 
+      //getArticles
       .addCase(getArticles.pending, (state) => {
         state.isLoading = true
-        state.noData = false
+        state.isDataEnabled = false
       })
       .addCase(getArticles.fulfilled, (state, action: PayloadAction<IArticle[]>) => {
         state.isLoading = false
         state.articles = action.payload
         if (state.articles.length === 0) {
-          state.noData = true
+          state.isDataEnabled = true
         } 
       })
       .addCase(getArticles.rejected, (state, action: PayloadAction<any>) => {
         state.error = action.payload
       })
 
+      //getArticlesCount
       .addCase(getArticlesCount.pending, (state) => {
         state.isLoading = true
       })
@@ -68,6 +77,7 @@ const articlesSlice = createSlice({
         state.error = action.payload
       })
 
+      //getArticlesByPage
       .addCase(getArticlesByPage.pending, (state) => {
         state.isLoading = true
       })
@@ -81,6 +91,6 @@ const articlesSlice = createSlice({
   },
 })
 
-export const { saveQuery } = articlesSlice.actions
+export const { saveQuery, setPageNumUpdated } = articlesSlice.actions
 
 export default articlesSlice.reducer

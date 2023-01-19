@@ -36,6 +36,8 @@ export const skeletonCardBodyWrapperSx = {
 export const skeletonCardImgSx = {
   minHeight: "220px", 
   maxHeight: "220px", 
+  borderBottomLeftRadius: '0px',
+  borderBottomRightRadius: '0px',
   transform: "scale(1)",
 }
 

@@ -1,10 +1,10 @@
 import {
   Card,
   CardContent,
-  CardMedia,
   Typography,
   CardActions,
   Stack,
+  Skeleton,
 } from "@mui/material"
 import { Link } from "react-router-dom"
 import { BsArrowRightShort } from "react-icons/bs"
@@ -23,6 +23,7 @@ import {
   cardActionsSx,
   cardActionLinkSx,
 } from "./CardStyles"
+import { useState } from "react"
 
 interface Props {
   article: IArticle
@@ -30,7 +31,8 @@ interface Props {
   isLoading: boolean
 }
 
-const CardItem = ({ article, queryArr, isLoading }: Props) => {
+const CardItem = ({ article, queryArr }: Props) => {
+  const [loadingContext, setLoadingContext] = useState<boolean>(true)
   const { title, summary, imageUrl, publishedAt } = article
 
   const formattedDate = dateFormatter(publishedAt)
@@ -38,11 +40,13 @@ const CardItem = ({ article, queryArr, isLoading }: Props) => {
 
   return (
     <Card sx={cardItemSx}>
-      <CardMedia
-        component="img"
-        image={imageUrl ? imageUrl : ""}
+      {loadingContext && <Skeleton width={"100%"} sx={cardImgSx} />}
+      <img
+        src={imageUrl ? imageUrl : ""}
         alt={title}
-        sx={cardImgSx}
+        onLoad={() => setLoadingContext(false)}
+        className="card__img"
+        style={{ display: loadingContext ? "none" : "block" }}
       />
       <CardContent sx={cardBodyWrapperSx}>
         <Stack

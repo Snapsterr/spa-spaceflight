@@ -5,6 +5,7 @@ export const articlePageImgSx = {
   height: 245,
   width: "100%",
   objectFit: "cover",
+  transform: 'scale(1)',
   zIndex: "5",
 }
 

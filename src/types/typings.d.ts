@@ -28,7 +28,8 @@ type ArticlesState = {
   isLoading: boolean
   error: string | null
   query: string[]
-  noData: boolean
+  isDataEnabled: boolean
+  isPageNumChanged: boolean
 }
 
 type ArticlesByPage = {

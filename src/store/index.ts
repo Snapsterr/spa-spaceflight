@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import articlesSlice from "./slices/articlesSlice"
+// import searchSlice from "./slices/searchSlice"
 
 const rootReducer = combineReducers({
-  articlesSlice
+  articlesSlice,
+  // searchSlice
 })
 
 const store = configureStore({

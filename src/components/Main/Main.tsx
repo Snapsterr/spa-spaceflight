@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { lazy, Suspense, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../hooks/useAppDispatch"
 import useNavigation from "../../hooks/useNavigation"
 import {
@@ -7,14 +7,14 @@ import {
   getAllArticlesByPage,
 } from "../../store/thunks/fetchArticles"
 import CardsGrid from "../CardsGrid/CardsGrid"
-import ErrorData from "../ErrorData/ErrorData"
 import PaginationRange from "./PaginationRange"
 import ResultCount from "./ResultCount"
 
+const ErrorData = lazy(() => import("../ErrorData/ErrorData"))
+
 const Main = () => {
-  const { articles, count, query, noData } = useAppSelector(
-    (state) => state.articlesSlice
-  )
+  const { articles, count, query, isDataEnabled, isPageNumChanged } =
+    useAppSelector((state) => state.articlesSlice)
 
   const dispatch = useAppDispatch()
   const { page, handleChange } = useNavigation()
@@ -31,11 +31,16 @@ const Main = () => {
     if (articles.length !== 0 && query.length === 0) {
       dispatch(getAllArticlesByPage(page))
     }
-  }, [page])
+  }, [isPageNumChanged])
 
   const totalPages = Math.ceil(count / 6)
 
-  if (noData) return <ErrorData />
+  if (isDataEnabled)
+    return (
+      <Suspense>
+        <ErrorData />
+      </Suspense>
+    )
 
   return (
     <main className="main">
