@@ -10,7 +10,7 @@ import CardsGrid from "../CardsGrid/CardsGrid"
 import PaginationRange from "./PaginationRange"
 import ResultCount from "./ResultCount"
 
-const ErrorData = lazy(() => import("../ErrorData/ErrorData"))
+const ErrorData = lazy(() => import("../ErrorData"))
 
 const Main = () => {
   const { articles, count, query, isDataEnabled, isPageNumChanged } =

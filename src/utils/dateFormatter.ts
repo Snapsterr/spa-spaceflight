@@ -2,7 +2,7 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
-const daySuffix = (d: number) => {
+const daySuffix = (d: number): string => {
   if (d > 3 && d < 21) return 'th';
   switch (d % 10) {
       case 1:  return "st";
@@ -12,7 +12,7 @@ const daySuffix = (d: number) => {
   }
 } 
 
-export const dateFormatter = (str: string) => {
+export const dateFormatter = (str: string): string => {
   const date = new Date(str)
 
   const year = date.getUTCFullYear()

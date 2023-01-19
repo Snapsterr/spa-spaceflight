@@ -3,6 +3,9 @@ export const paginationSx = {
   color: "#fff !important",
   ".MuiPaginationItem-root.Mui-selected": {
     backgroundColor: "#363636",
+    "&:hover": {
+      backgroundColor: '#5a5a5a',
+    }
   },
   ".MuiPagination-ul": {
     justifyContent: "center",
