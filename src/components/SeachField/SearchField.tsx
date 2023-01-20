@@ -2,17 +2,17 @@ import React, { useRef, useState } from "react"
 import { IconButton, TextField } from "@mui/material"
 import { FiSearch } from "react-icons/fi"
 import { stringToArray } from "../../utils/stringUtils"
-import { useAppDispatch } from "../../hooks/useAppDispatch"
-import { getArticles, getArticlesCount } from "../../store/thunks/fetchArticles"
-import { saveQuery } from "../../store/slices/articlesSlice"
-import { searchFieldSx } from "./HeaderStyles"
+import { searchFieldSx } from "./SearchFieldStyle"
 
-const SearchField = () => {
+interface Props {
+  onSubmit: (query: string[]) => void
+}
+
+const SearchField = ({ onSubmit }: Props) => {
   const searchRef = useRef<HTMLInputElement>(null)
   const [isError, setIsError] = useState<boolean>(false)
-  const dispatch = useAppDispatch()
 
-  const onSubmitHandler = (e: React.FormEvent) => {
+  const onSubmitHandler = (e: React.FormEvent): void => {
     e.preventDefault()
 
     setIsError(false)
@@ -21,11 +21,9 @@ const SearchField = () => {
     if (searchRef.current?.value) {
       if (!searchText?.trim().length) return setIsError(true)
 
-      const query = stringToArray(searchRef.current?.value)
+      const query = stringToArray(searchText)
 
-      dispatch(saveQuery(query))
-      dispatch(getArticles(query))
-      dispatch(getArticlesCount(query))
+      onSubmit(query)
     } else {
       setIsError(true)
     }
@@ -37,11 +35,7 @@ const SearchField = () => {
         inputRef={searchRef}
         InputProps={{
           startAdornment: (
-            <IconButton
-              type="submit"
-              className="search-icon"
-              aria-label="search"
-            >
+            <IconButton type="submit" aria-label="search">
               <FiSearch />
             </IconButton>
           ),

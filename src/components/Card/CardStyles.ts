@@ -6,7 +6,7 @@ export const cardItemSx = {
   boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.05)",
   borderRadius: "5px",
   transition: 'box-shadow 0.4s ease',
-  userSelect: 'none',
+  // userSelect: 'none',
   position: 'relative',
   "&:hover": {
     boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.25)",

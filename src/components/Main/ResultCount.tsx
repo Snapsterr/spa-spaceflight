@@ -1,3 +1,4 @@
+import React from "react"
 import { Divider } from "@mui/material"
 
 interface Props {
@@ -16,4 +17,4 @@ const ResultCount = ({ count }: Props) => {
   )
 }
 
-export default ResultCount
+export default React.memo(ResultCount)

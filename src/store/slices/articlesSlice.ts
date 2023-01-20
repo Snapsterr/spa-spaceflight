@@ -8,7 +8,8 @@ const initialState: ArticlesState = {
   isLoading: false,
   query: [],
   isDataEnabled: false,
-  isPageNumChanged: false
+  isPageNumChanged: false,
+  page: 1,
 }
 
 const articlesSlice = createSlice({
@@ -20,6 +21,9 @@ const articlesSlice = createSlice({
     },
     setPageNumUpdated(state) {
       state.isPageNumChanged = !state.isPageNumChanged
+    },
+    setPageNum(state, action: PayloadAction<number>) {
+      state.page = action.payload
     }
   },
   extraReducers(builder) {
@@ -56,6 +60,7 @@ const articlesSlice = createSlice({
       })
       .addCase(getArticles.fulfilled, (state, action: PayloadAction<IArticle[]>) => {
         state.isLoading = false
+        state.page = 1
         state.articles = action.payload
         if (state.articles.length === 0) {
           state.isDataEnabled = true
@@ -91,6 +96,6 @@ const articlesSlice = createSlice({
   },
 })
 
-export const { saveQuery, setPageNumUpdated } = articlesSlice.actions
+export const { saveQuery, setPageNumUpdated, setPageNum } = articlesSlice.actions
 
 export default articlesSlice.reducer

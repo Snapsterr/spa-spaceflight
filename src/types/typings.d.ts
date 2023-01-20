@@ -30,6 +30,7 @@ type ArticlesState = {
   query: string[]
   isDataEnabled: boolean
   isPageNumChanged: boolean
+  page: number
 }
 
 type ArticlesByPage = {
