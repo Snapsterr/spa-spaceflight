@@ -38,7 +38,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} errorElement={<Error />} />
         <Route
-          path="/cardpage"
+          path="/cardpage/:id"
           element={<ArticlePage />}
           errorElement={<Error />}
         />

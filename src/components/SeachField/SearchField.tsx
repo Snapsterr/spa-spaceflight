@@ -16,17 +16,13 @@ const SearchField = ({ onSubmit }: Props) => {
     e.preventDefault()
 
     setIsError(false)
-    const searchText = searchRef.current?.value
 
-    if (searchRef.current?.value) {
-      if (!searchText?.trim().length) return setIsError(true)
+    if (!searchRef.current?.value.trim().length || !searchRef.current.value)
+      return setIsError(true)
 
-      const query = stringToArray(searchText)
+    const query = stringToArray(searchRef.current?.value)
 
-      onSubmit(query)
-    } else {
-      setIsError(true)
-    }
+    onSubmit(query)
   }
 
   return (

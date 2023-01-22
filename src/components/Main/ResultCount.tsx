@@ -1,5 +1,6 @@
 import React from "react"
 import { Divider } from "@mui/material"
+import { dividerSx } from "./MainStyles"
 
 interface Props {
   count: number
@@ -12,7 +13,7 @@ const ResultCount = ({ count }: Props) => {
         Results: <>{count}</>
       </div>
 
-      <Divider textAlign="left" />
+      <Divider textAlign="left" sx={dividerSx} />
     </>
   )
 }

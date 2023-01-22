@@ -68,7 +68,7 @@ const ArticlePage = () => {
           </Box>
 
           <CardActions sx={articlePageActionSx}>
-            <Link to="/" className="link__more link__more--left">
+            <Link to="/" className="link link__left">
               <Stack
                 direction="row"
                 alignItems="start"

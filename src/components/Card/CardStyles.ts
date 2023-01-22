@@ -6,7 +6,6 @@ export const cardItemSx = {
   boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.05)",
   borderRadius: "5px",
   transition: 'box-shadow 0.4s ease',
-  // userSelect: 'none',
   position: 'relative',
   "&:hover": {
     boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.25)",
@@ -37,6 +36,7 @@ export const cardBodyWrapperSx = {
 export const cardDateWrapperSx = {
   marginBottom: "22px",
   gap: '8px',
+  opacity: "0.6",
   "@media screen and (max-width: 599px)": {
     gap: '5px'
   },
@@ -50,7 +50,6 @@ export const cardDateSx = {
   fontSize: "14px",
   lineHeight: "125%",
   color: '#363636',
-  opacity: "0.6",
   "@media screen and (max-width: 599px)": {
     fontSize: "12px"
   },

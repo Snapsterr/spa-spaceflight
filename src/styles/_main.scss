@@ -3,25 +3,26 @@
 }
 
 .link {
-  &__more {
-    &:hover {
+  user-select: none;
+
+  &__right {
+    &:hover .MuiCardActions-root {
       text-decoration: underline;
     }
 
-    svg {
-      transition: margin 0.2s linear,
-        left 0.2s linear;
-    }
-  }
-
-  &__more--right {
-    &:hover svg {
+    &:hover .icon__arrow {
+      transition: margin-left 0.2s linear;
       margin-left: 10px;
     }
   }
 
-  &__more--left {
+  &__left {
+    &:hover {
+      text-decoration: underline;
+    }
+
     &:hover svg {
+      transition: left 0.2s linear;
       left: -10px;
     }
   }
